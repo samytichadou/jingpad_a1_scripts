@@ -10,7 +10,10 @@ def format_console_output(output):
     return list
 
 def get_android_apps_package():
-    return format_console_output(str(subprocess.check_output(['japm', 'list'])))
+    list=[]
+    for app in format_console_output(str(subprocess.check_output(['japm', 'list']))):
+        list.append(app.split(" ")[0])
+    return list
 
 def get_android_app_details():
     list=[]
